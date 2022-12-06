@@ -20,9 +20,12 @@ public class FieldButton
 	
 	private static boolean playerOneTurn = true;
 	private static boolean playerTwoTurn = !playerOneTurn;
+	private final Color BG_STANDARD = new Color(255,252,240);
+	private final Color TEXT_RED = new Color(128,0,0);
 	
 	public FieldButton(Field field) {
 		this.field = field;
+		setBackground(BG_STANDARD);
 		addMouseListener(this);
 		field.registerObserver(this);
 	}
@@ -56,7 +59,7 @@ public class FieldButton
 	}
 	
 	private void applyToggleCharacStylePlayerTwo() {
-		setForeground(Color.RED);
+		setForeground(TEXT_RED);
 		setText("O");
 		setFont(new Font("Arial", Font.BOLD, 40));
 		playerTwoTurn = false;
@@ -69,12 +72,12 @@ public class FieldButton
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton()==1 && playerOneTurn) {
-			field.toMark(new Player("X", true));
+			field.toMark(new Player("X"));
 			field.toggleMarcked();
 		}
 		else{
 			if(playerTwoTurn) {
-				field.toMark(new Player("O", true));
+				field.toMark(new Player("O"));
 				field.toggleMarcked();
 			}
 		}

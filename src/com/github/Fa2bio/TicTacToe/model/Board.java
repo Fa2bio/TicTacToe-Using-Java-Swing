@@ -54,7 +54,6 @@ public class Board implements ObserverField{
 				
 			}
 			if(acumulator==3) {
-				player.setWinner(true);
 				return true;
 			}else goal = false;
 		}
@@ -70,7 +69,6 @@ public class Board implements ObserverField{
 				}
 			}
 			if(acumulator==3) {
-				player.setWinner(true);
 				return true;
 			}else goal = false;
 			
@@ -93,7 +91,7 @@ public class Board implements ObserverField{
 				i++;
 			}
 			if(acumulator==3||acumulatorD2==3) {
-				player.setWinner(true);
+
 				goal = true;
 			}else goal = false;
 			
@@ -127,9 +125,9 @@ public class Board implements ObserverField{
 	@Override
 	public void eventHappened(Field field, EventField event) {
 
-		if(event == EventField.MARKED && (!achievedGoal(new Player("X", true))) || !achievedGoal(new Player("O", true)) ) notifyObservers(false, false, false);
-		if(event == EventField.MARKED && (achievedGoal(new Player("X", true))) && !achievedGoal(new Player("O", true))) notifyObservers(true, false, false);
-		if(event == EventField.MARKED && (!achievedGoal(new Player("X", true))) && achievedGoal(new Player("O", true))) notifyObservers(false, true, false);	
+		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) || !achievedGoal(new Player("O")) ) notifyObservers(false, false, false);
+		if(event == EventField.MARKED && (achievedGoal(new Player("X"))) && !achievedGoal(new Player("O"))) notifyObservers(true, false, false);
+		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) && achievedGoal(new Player("O"))) notifyObservers(false, true, false);	
 		if(event == EventField.MARKED && tiedMatch()) notifyObservers(false, false, true);
 	}
 	
@@ -137,9 +135,9 @@ public class Board implements ObserverField{
 		observers.add(observer);
 	}
 	
-	private void notifyObservers(boolean winnerPlayOne, boolean winnerPlayTwo, boolean tie) {
+	private void notifyObservers(boolean winnerPlayOne, boolean winnerPlayTwo, boolean tied) {
 		observers.stream()
-			.forEach(o -> o.accept(new EventResult(winnerPlayOne, winnerPlayTwo, tie)));
+			.forEach(o -> o.accept(new EventResult(winnerPlayOne, winnerPlayTwo, tied)));
 	}
 	
 

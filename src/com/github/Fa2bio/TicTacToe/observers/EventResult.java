@@ -3,12 +3,12 @@ package com.github.Fa2bio.TicTacToe.observers;
 public class EventResult {
 	private final boolean winnerPlayOne;
 	private final boolean winnerPlayTwo;
-	private final boolean tie;
+	private final boolean tied;
 	
-	public EventResult(boolean winnerPlayOne, boolean winnerPlayTwo, boolean tie) {
+	public EventResult(boolean winnerPlayOne, boolean winnerPlayTwo, boolean tied) {
 		this.winnerPlayOne = winnerPlayOne;
 		this.winnerPlayTwo = winnerPlayTwo;
-		this.tie = tie;
+		this.tied = tied;
 	}
 
 	public boolean playerOneisWinner() {
@@ -20,6 +20,6 @@ public class EventResult {
 	}
 	
 	public boolean isTied() {
-		return tie;
+		return tied;
 	}
 }

@@ -38,6 +38,6 @@ MainScreen.java at \src\com\github\Fa2bio\MinesweeperUsingJavaSwing\vision
 
 ## <a name="preview"></a>Preview
 
-![tic1](https://user-images.githubusercontent.com/41877566/205850740-63da4611-ecd4-4f35-9f59-1c5b5e5e24e8.png)
+![tic1](https://user-images.githubusercontent.com/41877566/205981406-b76b51fa-bc11-48b0-a101-807efc0e7aba.png)
 
-![tic2](https://user-images.githubusercontent.com/41877566/205850789-7efb5b27-9a02-49a1-8aed-fbc673e0d1bb.png)
+![tic2](https://user-images.githubusercontent.com/41877566/205981587-e01fd1b5-10f0-441d-814b-ff84dc2deccb.png)
