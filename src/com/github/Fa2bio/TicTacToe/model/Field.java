@@ -10,10 +10,12 @@ public class Field {
 	
 	//position x
 	private int line;
+	
 	//position y
 	private int column;
 	
 	private String charac = " ";
+	
 	//Has the field been marked?
 	private boolean marcked = false;
 
@@ -64,11 +66,6 @@ public class Field {
 		setCharac(" ");
 		notifyObservers(EventField.RESTART);
 	}
-	public String toString() {
-		StringBuilder sr = new StringBuilder();
-		sr.append(charac);
-		return sr.toString();
-	}
 	
 	public void toMark(Player player) {
 		if(!isMarcked()) {
@@ -86,9 +83,6 @@ public class Field {
 		}
 	}
 	
-	public boolean achievedGoal() {
-		return isMarcked();
-	}
 
 	public void registerObserver(ObserverField observer) {
 		observers.add(observer);
