@@ -23,6 +23,7 @@ A back-end and front-end project of a Minesweeper developed using Java. This is 
 
 - Java
 - Java Swing
+- Observer pattern
 
 ## <a name="installation"></a>Installation
 
