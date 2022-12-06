@@ -13,7 +13,7 @@
 
 ## <a name="what-is-it"></a>What is it?
 
-A back-end and front-end project of a Minesweeper developed using Java. This is the continuation of the https://github.com/Fa2bio/TicTacToe. In this version was modified the gameplay, now the gameplay is by the interface of a Java application.
+A back-end and front-end project of a TicTacToe developed using Java. This is the continuation of the https://github.com/Fa2bio/TicTacToe. In this version was modified the gameplay, now the gameplay is by the interface of a Java application.
 
 ## <a name="requirements"></a>Requirements
 
