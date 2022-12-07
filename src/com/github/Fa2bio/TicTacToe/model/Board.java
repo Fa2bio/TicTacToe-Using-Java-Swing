@@ -12,6 +12,9 @@ public class Board implements ObserverField{
 	private final int lines = 3;
 	private final int columns = 3;
 	
+	private static int scoreX = 0;
+	private static int scoreO = 0;
+	
 	private final List<Field> fields = new ArrayList<Field>();
 	private final List<Consumer<EventResult>> observers = new ArrayList<Consumer<EventResult>>();
 	
@@ -113,6 +116,14 @@ public class Board implements ObserverField{
 		return this.columns;
 	}
 	
+	public int getPlacarX() {
+		return Board.scoreX;
+	}
+	
+	public int getPlacarO() {
+		return Board.scoreO;
+	}
+	
 	public boolean tiedMatch() {
 		int ac = 0;
 		for (Field field : fields) {
@@ -126,8 +137,14 @@ public class Board implements ObserverField{
 	public void eventHappened(Field field, EventField event) {
 
 		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) || !achievedGoal(new Player("O")) ) notifyObservers(false, false, false);
-		if(event == EventField.MARKED && (achievedGoal(new Player("X"))) && !achievedGoal(new Player("O"))) notifyObservers(true, false, false);
-		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) && achievedGoal(new Player("O"))) notifyObservers(false, true, false);	
+		if(event == EventField.MARKED && (achievedGoal(new Player("X"))) && !achievedGoal(new Player("O"))) {
+			scoreX++;
+			notifyObservers(true, false, false);
+		}
+		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) && achievedGoal(new Player("O"))) {
+			scoreO++;
+			notifyObservers(false, true, false);	
+		}
 		if(event == EventField.MARKED && tiedMatch()) notifyObservers(false, false, true);
 	}
 	
