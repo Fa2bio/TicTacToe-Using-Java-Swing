@@ -1,4 +1,4 @@
-<h1>TicTacToe-Using-Java-Swing</h1>
+<h1>TicTacToe Using Java Swing</h1>
 
 > Status: Finished ✔️
 
