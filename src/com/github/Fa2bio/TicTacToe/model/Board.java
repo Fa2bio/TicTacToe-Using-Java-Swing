@@ -136,16 +136,25 @@ public class Board implements ObserverField{
 	@Override
 	public void eventHappened(Field field, EventField event) {
 
-		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) || !achievedGoal(new Player("O")) ) notifyObservers(false, false, false);
+		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) || !achievedGoal(new Player("O")) ) {
+			notifyObservers(false, false, false);
+		}
+		
 		if(event == EventField.MARKED && (achievedGoal(new Player("X"))) && !achievedGoal(new Player("O"))) {
 			scoreX++;
 			notifyObservers(true, false, false);
+			return;
 		}
+		
 		if(event == EventField.MARKED && (!achievedGoal(new Player("X"))) && achievedGoal(new Player("O"))) {
 			scoreO++;
 			notifyObservers(false, true, false);	
+			return;
 		}
-		if(event == EventField.MARKED && tiedMatch()) notifyObservers(false, false, true);
+		
+		if(event == EventField.MARKED && tiedMatch()) {
+			notifyObservers(false, false, true);
+		}
 	}
 	
 	public void registerObserver(Consumer<EventResult> observer) {
